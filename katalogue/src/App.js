@@ -43,15 +43,16 @@ class App extends Component {
       this.setState({ categories: categories });
     });
 
-    this.getData("/api/v1/users").then((res) => {
+    axios.get(`http://localhost:9000/api/v1/users/`).then((res) => {
       this.setState({
-        users: res,
+        users: res.data,
       });
     });
-    this.getData("/api/v1/products").then((res) => {
+
+    axios.get(`http://localhost:9000/api/v1/products/`).then((res) => {
       this.setState({
-        products: res,
-        featured: featuredChecker(res),
+        products: res.data,
+        featured: featuredChecker(res.data),
       });
     });
     const featuredChecker = (arr) => {
