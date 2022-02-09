@@ -11,6 +11,7 @@ exports.createUser = (req, res, next) => {
     address: req.body.address,
     profile_pic: req.body.image,
   });
+  console.log(user);
   user
     .save()
     .then(() => {

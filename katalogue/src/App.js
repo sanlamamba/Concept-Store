@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 
 import "./assets/stylesheets/App.css";
 
+import axios from "axios";
 import HeaderMenu from "./components/HeaderMenu";
 import Home from "./screens/Home";
 import FooterMain from "./components/FooterMain";
@@ -37,10 +38,9 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.getData("/api/v1/categories").then((res) => {
-      this.setState({
-        categories: res,
-      });
+    axios.get(`http://localhost:9000/api/v1/categories/`).then((res) => {
+      const categories = res.data;
+      this.setState({ categories: categories });
     });
 
     this.getData("/api/v1/users").then((res) => {

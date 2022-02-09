@@ -111,7 +111,20 @@ const Register = (props) => {
         document.getElementById("prenomTxt").value +
         " " +
         document.getElementById("prenomTxt").value,
+      telephone: document.getElementById("telephoneTxt"),
+      password: document.getElementById("passwordTxt"),
+      country: "Senegal",
+      address: document.getElementById("addressTxt"),
+      profile_pic: null,
     };
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userInfo),
+    };
+    fetch("localhost:9000/api/v1/users/create", options);
     console.log(userInfo);
   };
   return (
@@ -147,7 +160,7 @@ const Register = (props) => {
                   type="text"
                   className="row form-control py-2 my-1"
                   placeholder="Adresse de livraison : Quartier, Ville, Pays"
-                  id="addresseTxt"
+                  id="addressTxt"
                 />
               </div>
             </div>
@@ -169,7 +182,7 @@ const Register = (props) => {
                   className="row form-control py-2 my-1 w-100"
                   placeholder="Numero de telephone"
                   required
-                  id="numeroTxt"
+                  id="telephoneTxt"
                 />
               </div>
             </div>
@@ -181,7 +194,7 @@ const Register = (props) => {
                   className="row form-control py-2 my-1 w-100"
                   placeholder="Mot de passe"
                   required
-                  id="pwdTxt"
+                  id="passwordTxt"
                 />
               </div>
             </div>
@@ -192,7 +205,7 @@ const Register = (props) => {
                   className="row form-control py-2 my-1 w-100"
                   placeholder="Confirmer votre mot de passe"
                   required
-                  id="pwdConfTxt"
+                  id="passwordTxtConf"
                 />
               </div>
             </div>
