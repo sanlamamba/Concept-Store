@@ -1,0 +1,131 @@
+.App {
+  text-align: center;
+}
+
+:root {
+  --primary: #fa8080;
+  --secondary: #cfcfcf;
+  --positive: #f0f0f0;
+  --negative: #202020;
+  --posGrey: #f5f5f7;
+  --negGrey: #6e6e73;
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid red;
+}
+a {
+  text-decoration: inherit;
+  color: inherit;
+  font-size: inherit;
+}
+a.link {
+  color: var(--primary);
+}
+a:hover {
+  color: var(--primary);
+  transition: 0.1s ease-in;
+}
+
+/* THUMBNAIL */
+.product_thumbnail {
+  position: relative;
+}
+
+.product_thumbnail svg {
+  position: absolute;
+  top: 1em;
+  right: 2em;
+  stroke: var(--positive);
+}
+
+/* footer */
+.footer {
+  background-color: var(--posGrey);
+}
+.footerHeading {
+  font-size: 0.8em !important;
+}
+.footerItem {
+  font-size: 0.75em;
+  padding: 1em;
+}
+.footer_copyright {
+  border-top: 1px solid var(--negGrey);
+}
+
+/* HEADER */
+.header {
+  background-color: var(--negative);
+  color: var(--positive);
+  z-index: 20;
+}
+
+.header_cart {
+  position: relative;
+}
+.header_cart::after {
+  content: "5";
+  background-color: var(--positive);
+  color: var(--negative);
+  width: 1.5em;
+  height: 1.5em;
+  position: absolute;
+  font-size: 0.8em;
+  right: -10%;
+  top: -25%;
+  border-radius: 50%;
+}
+
+/* SIDEBAR */
+.sidebar_search {
+  position: relative;
+}
+.sidebar_search svg {
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: 0.5em;
+  right: 0;
+  stroke: var(--negGrey);
+}
+
+/* HOME BANNER */
+.slider_container {
+  position: relative;
+}
+.slider_nav {
+  position: absolute;
+  background-color: red;
+  width: 105%;
+  height: 100%;
+}
+
+/* header Search */
+.header_search {
+  position: relative;
+}
+.header_search_cont {
+  transition: 0.5s ease-out;
+  position: absolute;
+  min-width: 300px;
+  width: 15vw;
+  top: 0;
+  z-index: 1;
+  right: 0;
+  transform: translateY(-200%);
+}
+.header_search_cont.active {
+  transform: translateY(50px);
+}
+.header_search_cont input {
+  z-index: 1;
+}
+
+.search_result_desc {
+  font-size: 0.6em;
+}
