@@ -24,14 +24,13 @@ app.use((req, res, next) => {
   );
   next();
 });
-app.use(express.json());
 
 const categoriesRoutes = require("./routes/categorie");
 const productRoutes = require("./routes/product");
 const userRoutes = require("./routes/user");
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use("/api/v1/categories", categoriesRoutes);
 app.use("/api/v1/products", productRoutes);
 app.use("/api/v1/users", userRoutes);
-
 module.exports = app;

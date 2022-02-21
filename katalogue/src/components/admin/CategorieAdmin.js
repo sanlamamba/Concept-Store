@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -48,22 +49,24 @@ const CreateCategorie = (props) => {
   const sendFormData = (e) => {
     const label_input = document.getElementsByName("label")[0].value;
     const image_input = document.getElementsByName("image")[0].value;
-    const data = JSON.stringify({
-      label: label_input,
-      image: "default.jpg",
-    });
 
-    fetch("http://localhost:9000/api/v1/categories/create", {
-      method: "post",
-      mode: "cors",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: data,
-    })
+    axios
+      .post("http://localhost:9000/api/v1/categories/create", {
+        label: label_input,
+        image: "default.jpg",
+      })
       .then((res) => res.json())
       .then((res) => console.log(res));
+
+    // fetch("http://localhost:9000/api/v1/categories/create", {
+    //   method: "post",
+    //   mode: "cors",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: data,
+    // });
   };
   return (
     <div className="col-12">

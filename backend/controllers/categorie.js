@@ -11,6 +11,7 @@ exports.getCategories = (req, res, next) => {
 };
 
 exports.createCategorie = (req, res, next) => {
+  console.log(req.body);
   const categorie = new Categorie({
     label: req.body.label,
     image: req.body.image,
