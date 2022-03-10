@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { URL_CODER } from "../../assets/javascript/urlManager";
@@ -75,7 +76,18 @@ const ViewProducts = (props) => {
 };
 
 const NewProduct = (props) => {
-  console.log(props.data.categories);
+  const sendFormData = (e) => {
+    const label_input = document.getElementsByName("label")[0].value;
+    const image_input = document.getElementsByName("image")[0].value;
+
+    axios
+      .post("http://localhost:9000/api/v1/categories/create", {
+        label: label_input,
+        image: "default.jpg",
+      })
+      .then((res) => res.json())
+      .then((res) => console.log(res));
+  };
 
   return (
     <div className="col-12">
@@ -108,7 +120,7 @@ const NewProduct = (props) => {
               type="file"
               className="form-control col"
               placeholder="Categorie Label"
-              required
+              required={true}
               name="image"
             />
           </div>
