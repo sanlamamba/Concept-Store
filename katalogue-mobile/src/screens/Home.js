@@ -1,8 +1,7 @@
 import { StyleSheet, View, Text, ScrollView } from "react-native";
 import React from "react";
-import Header from "../components/General/Header/Header";
 import Categories from "../components/Categories";
-import ProductView from "../components/General/ProductView";
+import ProductView from "../components/ProductView";
 
 const Home = () => {
   return (
