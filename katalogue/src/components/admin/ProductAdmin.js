@@ -121,7 +121,6 @@ const NewProduct = (props) => {
               className="form-control col"
               placeholder="Categorie Label"
               required={true}
-              name="image"
             />
           </div>
 
