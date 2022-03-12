@@ -10,17 +10,17 @@ const MainSlider = () => {
         </div>
       </div>
       {/* <div className="col-12">
-        <FiArrowLeftCircle
-          className="col-4 m-auto"
-          size={20}
-          width="auto"
-          onPress={() => {
-            alert("yes");
-          }}
-        />
-        <FiArrowRightCircle className="col-4 m-auto" size={20} />
-      </div>
-       */}
+            <FiArrowLeftCircle
+            className="col-4 m-auto"
+            size={20}
+            width="auto"
+            onPress={() => {
+                alert("yes");
+            }}
+            />
+            <FiArrowRightCircle className="col-4 m-auto" size={20} />
+        </div>
+        */}
     </div>
   );
 };
