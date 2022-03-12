@@ -14,7 +14,7 @@ const Home = () => {
         <Categories />
 
         {/* Produit Vedette */}
-        <Text>Featured Products</Text>
+        <Text style={styles.h2}>Featured Products</Text>
         <ProductView featured />
 
         {/*RECEMMENT VUE*/}
@@ -36,7 +36,9 @@ const styles = StyleSheet.create({
     fontWeight: "900",
   },
   h2: {
-    fontSize: 65,
+    fontSize: 14,
+    margin: 10,
+    fontWeight: "600",
   },
 });
 export default Home;

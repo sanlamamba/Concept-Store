@@ -1,3 +1,1 @@
-export default typography = {
-  h1: {},
-};
+export const typography = { h2: "ble" };
