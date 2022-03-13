@@ -7,12 +7,12 @@ const categorieCtrl = require("../controllers/categorie");
 //multer COnfig
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./assets");
+    cb(null, "../public/assets/images/general/categories/");
   },
   filename: function (req, file, cb) {
     cb(
       null,
-      file.fieldname + "-" + Date.now() + "." + file.mimetype.split("/")[1]
+      file.originalname + "-" + Date.now() + "." + file.mimetype.split("/")[1]
     );
   },
 });
