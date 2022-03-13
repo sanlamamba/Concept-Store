@@ -30,6 +30,7 @@ const productRoutes = require("./routes/product");
 const userRoutes = require("./routes/user");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(__dirname + "/public"));
 app.use("/api/v1/categories", categoriesRoutes);
 app.use("/api/v1/products", productRoutes);
 app.use("/api/v1/users", userRoutes);
