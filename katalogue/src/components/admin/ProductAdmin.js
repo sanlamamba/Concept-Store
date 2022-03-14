@@ -94,7 +94,9 @@ const NewProduct = (props) => {
       <div className="row d-flex justify-content-center align-items-center">
         <form
           id="form"
+          action="http://localhost:9000/api/v1/products/create"
           method="POST"
+          enctype="multipart/form-data"
           className="col-6 shadow py-4 px-5 rounded"
         >
           <h5>Create a new Product</h5>
@@ -102,8 +104,17 @@ const NewProduct = (props) => {
             <input
               type="text"
               className="form-control"
-              placeholder="Product Title"
-              name="label"
+              placeholder="Categorie Label"
+              name="titre"
+              required
+            />
+          </div>
+          <div className="row mt-4 product__price_forminput_container">
+            <input
+              type="number"
+              className="form-control"
+              placeholder="Product Price"
+              name="price"
               required
             />
           </div>
@@ -125,14 +136,22 @@ const NewProduct = (props) => {
           </div>
 
           <div className="row mt-4">
-            <select className="form-control">
+            <select name="categorie" className="form-control">
               <option value={"null"}>Select Categorie</option>
               {props.data.categories.map((categorie) => (
                 <option value={categorie["_id"]}>{categorie.label}</option>
               ))}
             </select>
           </div>
-
+          <div className="row mt-4">
+            <textarea
+              type="form"
+              className="form-control"
+              placeholder="Product Description"
+              name="description"
+              required
+            />
+          </div>
           <div className="row mt-4 d-flex justify-content-end align-items-center">
             <input
               type="submit"

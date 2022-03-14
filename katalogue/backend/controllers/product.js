@@ -26,12 +26,14 @@ exports.getProductByTitle = (req, res, next) => {
 };
 
 exports.createProduct = (req, res, next) => {
+  console.log(req.body);
   const product = new Product({
     titre: req.body.titre,
     image: req.body.image,
     categorie: req.body.categorie,
     price: req.body.price,
     features: req.body.features,
+    description: req.body.description,
   });
   product
     .save()

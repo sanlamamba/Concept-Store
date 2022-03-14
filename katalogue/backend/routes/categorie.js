@@ -10,9 +10,10 @@ var storage = multer.diskStorage({
     cb(null, "../public/assets/images/general/categories/");
   },
   filename: function (req, file, cb) {
+    console.log("pass Multer");
     cb(
       null,
-      file.originalname + "-" + Date.now() + "." + file.mimetype.split("/")[1]
+      req.body.label + "-" + Date.now() + "." + file.mimetype.split("/")[1]
     );
   },
 });

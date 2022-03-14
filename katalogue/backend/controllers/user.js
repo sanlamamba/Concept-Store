@@ -4,11 +4,11 @@ const bcrypt = require("bcrypt");
 exports.createUser = (req, res, next) => {
   const user = new User({
     email: req.body.email,
-    name: req.body.name,
+    name: req.body.nom + " " + req.body.prenom,
     telephone: req.body.telephone,
     password: req.body.password,
-    country: req.body.country,
-    address: req.body.address,
+    country: "Senegal",
+    address: req.body.adresse,
     profile_pic: req.body.image,
   });
   console.log(user);

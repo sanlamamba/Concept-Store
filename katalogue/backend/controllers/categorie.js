@@ -11,10 +11,10 @@ exports.getCategories = (req, res, next) => {
 };
 
 exports.createCategorie = (req, res, next) => {
-  console.log(req.body);
+  console.log(req);
   const categorie = new Categorie({
     label: req.body.label,
-    image: req.body.image,
+    image: req.file.filename,
   });
   categorie
     .save()

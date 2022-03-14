@@ -63,12 +63,12 @@ const Connection = (props) => {
           <h4>Connexion</h4>
           <p className="text-muted">Sign in to your account now !</p>
           <input
-            className="mail"
+            name="mail"
             className="form-control py-2"
             placeholder="Votre Addresse mail"
           />
           <input
-            className="password"
+            name="password"
             className="form-control py-2"
             placeholder="Votre Mot de passe"
           />
@@ -103,37 +103,41 @@ const WebAuth = (props) => {
   );
 };
 const Register = (props) => {
-  const submitForm = (e) => {
-    alert("yes");
-    const userInfo = {
-      email: document.getElementById("emailTxt").value,
-      name:
-        document.getElementById("prenomTxt").value +
-        " " +
-        document.getElementById("prenomTxt").value,
-      telephone: document.getElementById("telephoneTxt"),
-      password: document.getElementById("passwordTxt"),
-      country: "Senegal",
-      address: document.getElementById("addressTxt"),
-      profile_pic: null,
-    };
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userInfo),
-    };
-    fetch("localhost:9000/api/v1/users/create", options);
-    console.log(userInfo);
-  };
+  // const submitForm = (e) => {
+  //   alert("yes");
+  //   const userInfo = {
+  //     email: document.getElementById("emailTxt").value,
+  //     name:
+  //       document.getElementById("prenomTxt").value +
+  //       " " +
+  //       document.getElementById("prenomTxt").value,
+  //     telephone: document.getElementById("telephoneTxt"),
+  //     password: document.getElementById("passwordTxt"),
+  //     country: "Senegal",
+  //     address: document.getElementById("addressTxt"),
+  //     profile_pic: null,
+  //   };
+  //   const options = {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(userInfo),
+  //   };
+  //   fetch("localhost:9000/api/v1/users/create", options);
+  //   console.log(userInfo);
+  // };
   return (
     <div className="row d-flex justify-content-center">
-      <div className="col-4">
+      <div className="col-5">
         <h4>Creer un compte !</h4>
         <p className="text-muted">Avez vous deja un compte ? Connectez vous</p>
         <div className="p-2 row">
-          <div className="col-12">
+          <form
+            method="POST"
+            action="http://localhost:9000/api/v1/users/create"
+            className="col-12"
+          >
             <div className="row">
               <div className="col-6">
                 <input
@@ -142,6 +146,7 @@ const Register = (props) => {
                   placeholder="Prenom"
                   required
                   id="prenomTxt"
+                  name="prenom"
                 />
               </div>
               <div className="col-6">
@@ -151,6 +156,7 @@ const Register = (props) => {
                   placeholder="Nom de Famille"
                   required
                   id="nomTxt"
+                  name="nom"
                 />
               </div>
             </div>
@@ -159,8 +165,9 @@ const Register = (props) => {
                 <input
                   type="text"
                   className="row form-control py-2 my-1"
-                  placeholder="Adresse de livraison : Quartier, Ville, Pays"
+                  placeholder="Adresse de livraison : Quartier, Ville"
                   id="addressTxt"
+                  name="adresse"
                 />
               </div>
             </div>
@@ -171,6 +178,7 @@ const Register = (props) => {
                   className="row form-control py-2 my-1 w-100"
                   placeholder="Adresse Mail"
                   required
+                  name="email"
                   id="emailTxt"
                 />
               </div>
@@ -178,10 +186,11 @@ const Register = (props) => {
             <div className="row">
               <div className="col-12">
                 <input
-                  type="mail"
+                  type="text"
                   className="row form-control py-2 my-1 w-100"
                   placeholder="Numero de telephone"
                   required
+                  name="telephone"
                   id="telephoneTxt"
                 />
               </div>
@@ -194,6 +203,7 @@ const Register = (props) => {
                   className="row form-control py-2 my-1 w-100"
                   placeholder="Mot de passe"
                   required
+                  name="password"
                   id="passwordTxt"
                 />
               </div>
@@ -209,10 +219,14 @@ const Register = (props) => {
                 />
               </div>
             </div>
-          </div>
-          <button className="my-2 btn btn-primary" onClick={submitForm}>
-            Se connecter
-          </button>
+            <input
+              type="submit"
+              name="envoyer"
+              className="form-control btn-primary w-auto px-5 m-auto"
+              value={"Create New Categorie"}
+            />
+          </form>
+
           <div id="emailHelp" class="form-text">
             We'll never share your personal information with third parties.
           </div>

@@ -46,34 +46,36 @@ function CategorieAdmin(props) {
 }
 
 const CreateCategorie = (props) => {
-  const sendFormData = (e) => {
-    const label_input = document.getElementsByName("label")[0].value;
-    const image_input = document.getElementsByName("image")[0].value;
+  // const sendFormData = (e) => {
+  //   const label_input = document.getElementsByName("label")[0].value;
+  //   const image_input = document.getElementsByName("image")[0].value;
 
-    axios
-      .post("http://localhost:9000/api/v1/categories/create", {
-        label: label_input,
-        image: "default.jpg",
-      })
-      .then((res) => res.json())
-      .then((res) => console.log(res));
+  //   // axios
+  //   //   .post("http://localhost:9000/api/v1/categories/create", {
+  //   //     label: label_input,
+  //   //     image: "default.jpg",
+  //   //   })
+  //   //   .then((res) => res.json())
+  //   //   .then((res) => console.log(res));
 
-    // fetch("http://localhost:9000/api/v1/categories/create", {
-    //   method: "post",
-    //   mode: "cors",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: data,
-    // });
-  };
+  //   // fetch("http://localhost:9000/api/v1/categories/create", {
+  //   //   method: "post",
+  //   //   mode: "cors",
+  //   //   headers: {
+  //   //     Accept: "application/json",
+  //   //     "Content-Type": "application/json",
+  //   //   },
+  //   //   body: data,
+  //   // });
+  // };
   return (
     <div className="col-12">
       <div className="row d-flex justify-content-center align-items-center">
         <form
           id="form"
+          action="http://localhost:9000/api/v1/categories/create"
           method="POST"
+          enctype="multipart/form-data"
           className="col-6 shadow py-4 px-5 rounded"
         >
           <h5>Create a new Categorie</h5>
@@ -99,7 +101,6 @@ const CreateCategorie = (props) => {
               className="form-control col"
               placeholder="Categorie Label"
               required
-              name="image"
             />
           </div>
           <div className="row mt-4 d-flex justify-content-end align-items-center">
@@ -107,10 +108,6 @@ const CreateCategorie = (props) => {
               type="submit"
               className="form-control btn-primary w-auto px-5"
               value={"Create New Categorie"}
-              onClick={(e) => {
-                e.preventDefault();
-                sendFormData();
-              }}
             />
           </div>
         </form>
