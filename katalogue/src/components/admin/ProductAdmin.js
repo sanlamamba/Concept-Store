@@ -76,48 +76,81 @@ const ViewProducts = (props) => {
 };
 
 const NewProduct = (props) => {
-  const sendFormData = (e) => {
-    const label_input = document.getElementsByName("label")[0].value;
-    const image_input = document.getElementsByName("image")[0].value;
-
-    axios
-      .post("http://localhost:9000/api/v1/categories/create", {
-        label: label_input,
-        image: "default.jpg",
-      })
-      .then((res) => res.json())
-      .then((res) => console.log(res));
-  };
-
   return (
     <div className="col-12">
       <div className="row d-flex justify-content-center align-items-center">
         <form
-          id="form"
+          action="http://localhost:9000/api/v1/products/create"
+          method="POST"
+          className="col-6 shadow py-4 px-5 rounded"
+        >
+          <legend>
+            <h5>Create New Product</h5>
+          </legend>
+          <div className="row mt-4">
+            <input
+              type={"text"}
+              name="titre"
+              className="form-control"
+              placeholder="Product Title"
+            />
+          </div>
+          <div className="row mt-4">
+            <input
+              type={"number"}
+              name="price"
+              className="form-control"
+              placeholder="Product Title"
+            />
+          </div>
+          <div className="row mt-4">
+            <input
+              type={"file"}
+              name="image"
+              className="form-control"
+              placeholder="Product Title"
+            />
+          </div>
+          <div className="row mt-4">
+            <select name="categorie" className="form-control">
+              <option value={"null"}>Select Categorie</option>
+              {props.data.categories.map((categorie) => (
+                <option value={categorie["_id"]}>{categorie.label}</option>
+              ))}
+            </select>
+          </div>
+          <div className="row mt-4">
+            <textarea name="description" className="form-control" />
+          </div>
+          <div className="row mt-4 d-flex justify-content-end align-items-center">
+            <input
+              type="submit"
+              className="form-control btn-primary w-auto px-5"
+              name="create"
+              value={"Create New Categorie"}
+            />
+          </div>
+        </form>
+        {/* <form
           action="http://localhost:9000/api/v1/products/create"
           method="POST"
           enctype="multipart/form-data"
           className="col-6 shadow py-4 px-5 rounded"
         >
-          <h5>Create a new Product</h5>
-          <div className="row mt-4">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Categorie Label"
-              name="titre"
-              required
-            />
-          </div>
-          <div className="row mt-4 product__price_forminput_container">
-            <input
-              type="number"
-              className="form-control"
-              placeholder="Product Price"
-              name="price"
-              required
-            />
-          </div>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Categorie Label"
+            name="titre"
+            required
+          />
+          <input
+            type="number"
+            className="form-control"
+            placeholder="Product Price"
+            name="price"
+            required
+          />
 
           <div className="row mt-4">
             <label
@@ -156,10 +189,11 @@ const NewProduct = (props) => {
             <input
               type="submit"
               className="form-control btn-primary w-auto px-5"
+              name="create"
               value={"Create New Categorie"}
             />
           </div>
-        </form>
+        </form> */}
       </div>
     </div>
   );

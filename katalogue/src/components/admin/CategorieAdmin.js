@@ -30,7 +30,6 @@ function CategorieAdmin(props) {
             Create New
           </button>
         </div>
-
         <div className="row py-2 mt-3">
           {navCat === "edit" ? (
             "some"
@@ -46,35 +45,12 @@ function CategorieAdmin(props) {
 }
 
 const CreateCategorie = (props) => {
-  // const sendFormData = (e) => {
-  //   const label_input = document.getElementsByName("label")[0].value;
-  //   const image_input = document.getElementsByName("image")[0].value;
-
-  //   // axios
-  //   //   .post("http://localhost:9000/api/v1/categories/create", {
-  //   //     label: label_input,
-  //   //     image: "default.jpg",
-  //   //   })
-  //   //   .then((res) => res.json())
-  //   //   .then((res) => console.log(res));
-
-  //   // fetch("http://localhost:9000/api/v1/categories/create", {
-  //   //   method: "post",
-  //   //   mode: "cors",
-  //   //   headers: {
-  //   //     Accept: "application/json",
-  //   //     "Content-Type": "application/json",
-  //   //   },
-  //   //   body: data,
-  //   // });
-  // };
   return (
     <div className="col-12">
       <div className="row d-flex justify-content-center align-items-center">
         <form
           id="form"
-          action="http://localhost:9000/api/v1/categories/create"
-          method="POST"
+          method="GET"
           enctype="multipart/form-data"
           className="col-6 shadow py-4 px-5 rounded"
         >
